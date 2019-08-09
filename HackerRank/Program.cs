@@ -11,13 +11,9 @@ namespace HackerRank
     {
         static void Main(string[] args)
         {
-            RightLadder.staircase(6);
             Console.ReadKey();
         }
         
     }
-    class Test
-    {
-
-    }
+    
 }

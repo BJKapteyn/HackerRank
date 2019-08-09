@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xunit;
 
 namespace HackerRank
 {
     //finds the min and max of the sum of 4 out of 5 of the array
-    class MinMaxArray
+    public class MinMaxArray
     {
         public static int[] MinMax(int[] arr)
         {
@@ -16,7 +17,6 @@ namespace HackerRank
             for (int i = 0; i < arr.Length; i++)
             {
                 int sum = 0;
-                sum += arr[i];
                 for(int k = 0; k < arr.Length; k++)
                 {
                     if(k == i)
@@ -28,9 +28,25 @@ namespace HackerRank
                 }
                 additions.Add(sum);
             }
-            result[0] = additions.Max();
-            result[1] = additions.Min();
+            result[0] = additions.Min();
+            result[1] = additions.Max();
             return result;
+        }
+        [Fact]
+        public void MinMaxTest()
+        {
+            int[] solution = { 10, 14 };
+            int[] test = { 1, 2, 3, 4, 5 };
+
+            Assert.Equal(solution, MinMax(test));
+        }
+        [Fact] 
+        public void MinMaxTest2()
+        {
+            int[] solution = { 16, 24 };
+            int[] test = { 1, 3, 5, 7, 9 };
+
+            Assert.Equal(solution, MinMax(test));
         }
     }
 }
