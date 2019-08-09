@@ -23,7 +23,7 @@ namespace HackerRank
             List<long> sums = new List<long>();
             for (int i = 0; i < arr.Length; i++)
             {
-                int sum = 0;
+                long sum = 0;
                 for (int k = 0; k < arr.Length; k++)
                 {
                     if (k == i)
@@ -58,8 +58,10 @@ namespace HackerRank
         [Fact]
         public void LongTest()
         {
-            uint[] solution = { 1659655705, 2484892405 };
+            long[] solution = { 1659655705, 2484892405 };
             int[] test = { 426980153, 354802167, 142980735, 968217435, 734892650 };
+
+            Assert.Equal(solution, MinMax(test));
         }
     }
 }
