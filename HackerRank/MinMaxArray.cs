@@ -10,17 +10,17 @@ namespace HackerRank
     //finds the min and max of the sum of 4 out of 5 of the array
     public class MinMaxArray
     {
-        public static int[] MinMax(int[] arr)
+        public static long[] MinMax(int[] arr)
         {
-            int[] result = new int[2];
-            List<int> additions = ListOfPossibleSums(arr);
+            long[] result = new long[2];
+            List<long> additions = ListOfPossibleSums(arr);
             result[0] = additions.Min();
             result[1] = additions.Max();
             return result;
         }
-        public static List<int> ListOfPossibleSums(int[] arr)
+        public static List<long> ListOfPossibleSums(int[] arr)
         {
-            List<int> sums = new List<int>();
+            List<long> sums = new List<long>();
             for (int i = 0; i < arr.Length; i++)
             {
                 int sum = 0;
@@ -41,18 +41,25 @@ namespace HackerRank
         [Fact]
         public void MinMaxTest()
         {
-            int[] solution = { 10, 14 };
+            long[] solution = { 10, 14 };
             int[] test = { 1, 2, 3, 4, 5 };
 
             Assert.Equal(solution, MinMax(test));
         }
-        [Fact] 
+        [Fact]
         public void MinMaxTest2()
         {
-            int[] solution = { 16, 24 };
+            long[] solution = { 16, 24 };
             int[] test = { 1, 3, 5, 7, 9 };
 
             Assert.Equal(solution, MinMax(test));
+        }
+
+        [Fact]
+        public void LongTest()
+        {
+            uint[] solution = { 1659655705, 2484892405 };
+            int[] test = { 426980153, 354802167, 142980735, 968217435, 734892650 };
         }
     }
 }
