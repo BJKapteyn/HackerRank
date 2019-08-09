@@ -13,25 +13,31 @@ namespace HackerRank
         public static int[] MinMax(int[] arr)
         {
             int[] result = new int[2];
-            List<int> additions = new List<int>();
+            List<int> additions = ListOfPossibleSums(arr);
+            result[0] = additions.Min();
+            result[1] = additions.Max();
+            return result;
+        }
+        public static List<int> ListOfPossibleSums(int[] arr)
+        {
+            List<int> sums = new List<int>();
             for (int i = 0; i < arr.Length; i++)
             {
                 int sum = 0;
-                for(int k = 0; k < arr.Length; k++)
+                for (int k = 0; k < arr.Length; k++)
                 {
-                    if(k == i)
+                    if (k == i)
                     {
                         continue;
                     }
                     sum += arr[k];
 
                 }
-                additions.Add(sum);
+                sums.Add(sum);
             }
-            result[0] = additions.Min();
-            result[1] = additions.Max();
-            return result;
+            return sums;
         }
+
         [Fact]
         public void MinMaxTest()
         {
