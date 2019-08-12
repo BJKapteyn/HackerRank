@@ -9,27 +9,27 @@ namespace HackerRank
 {
     public class ConvertToMilitaryTime
     {
+        private char[] RemoveChars = { 'M', 'A', 'P' };
+
         public string ConvertToMilitary(string s)
         {
             string result;
             string[] timeElements = s.Split(':');
-            char[] removeChars = { 'M', 'A', 'P' };
-            if (AmOrPm(s))
+            if (PM(s))
             {
-                if(timeElements[0] == "12")
-                {
-                    timeElements[0] = "00";
-                }
-                else
-                {
-                    timeElements[0] = (int.Parse(timeElements[0]) + 12).ToString();
-                }
+                Add12(ref timeElements[0]);
             }
-            result = string.Join(":", timeElements).Trim(removeChars);
+            result = string.Join(":", timeElements).Trim(RemoveChars);
 
             return result;
         }
-        public bool AmOrPm(string s)
+
+        public void Add12(ref string s)
+        {
+            s = s == "12" ? "00" : (int.Parse(s) + 12).ToString();
+        }
+        
+        public bool PM(string s)
         {
             if (s.ToUpper().Contains("PM"))
             {
