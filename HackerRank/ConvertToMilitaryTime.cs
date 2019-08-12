@@ -9,27 +9,33 @@ namespace HackerRank
 {
     public class ConvertToMilitaryTime
     {
-        private char[] RemoveChars = { 'M', 'A', 'P' };
+        private static char[] RemoveChars = { 'M', 'A', 'P' };
 
-        public string ConvertToMilitary(string s)
+        public static string ConvertToMilitary(string s)
         {
             string result;
+
             string[] timeElements = s.Split(':');
-            if (PM(s))
-            {
-                Add12(ref timeElements[0]);
-            }
+            timeElements[0] = Add12(s, timeElements[0]);
             result = string.Join(":", timeElements).Trim(RemoveChars);
 
             return result;
         }
 
-        public void Add12(ref string s)
+        private static string Add12(string time, string s)
         {
-            s = s == "12" ? "00" : (int.Parse(s) + 12).ToString();
+            if(PM(time))
+            {
+                s = s == "12" ? "12" : (int.Parse(s) + 12).ToString();
+            }
+            else
+            {
+                s = s == "12" ? "00" : s;
+            }
+            return s;
         }
         
-        public bool PM(string s)
+        private static bool PM(string s)
         {
             if (s.ToUpper().Contains("PM"))
             {
@@ -40,8 +46,9 @@ namespace HackerRank
 
         [Theory]
         [InlineData("07:05:45PM", "19:05:45")]
-        [InlineData("12:00:00PM", "00:00:00")]
+        [InlineData("12:00:00PM", "12:00:00")]
         [InlineData("07:08:15AM", "07:08:15")]
+        [InlineData("12:00:00AM", "00:00:00")]
         public void ConvertToMilitaryTest(string test, string expected)
         {
             Assert.Equal(expected, ConvertToMilitary(test));

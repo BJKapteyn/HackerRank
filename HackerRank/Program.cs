@@ -11,6 +11,7 @@ namespace HackerRank
     {
         static void Main(string[] args)
         {
+            Console.WriteLine(ConvertToMilitaryTime.ConvertToMilitary("07:45:19PM"));
             Console.ReadKey();
         }
         
