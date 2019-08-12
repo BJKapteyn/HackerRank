@@ -1,3 +1,5 @@
+C:\Users\Neville Bamshoot\source\repos\HackerRank\HackerRank\obj\Debug\HackerRank.csprojAssemblyReference.cache
+C:\Users\Neville Bamshoot\source\repos\HackerRank\HackerRank\obj\Debug\HackerRank.csproj.CoreCompileInputs.cache
 C:\Users\Neville Bamshoot\source\repos\HackerRank\HackerRank\bin\Debug\xunit.abstractions.dll
 C:\Users\Neville Bamshoot\source\repos\HackerRank\HackerRank\bin\Debug\xunit.runner.visualstudio.testadapter.dll
 C:\Users\Neville Bamshoot\source\repos\HackerRank\HackerRank\bin\Debug\xunit.runner.reporters.net452.dll
@@ -11,7 +13,6 @@ C:\Users\Neville Bamshoot\source\repos\HackerRank\HackerRank\bin\Debug\xunit.exe
 C:\Users\Neville Bamshoot\source\repos\HackerRank\HackerRank\bin\Debug\xunit.assert.xml
 C:\Users\Neville Bamshoot\source\repos\HackerRank\HackerRank\bin\Debug\xunit.core.xml
 C:\Users\Neville Bamshoot\source\repos\HackerRank\HackerRank\bin\Debug\xunit.execution.desktop.xml
-C:\Users\Neville Bamshoot\source\repos\HackerRank\HackerRank\obj\Debug\HackerRank.csproj.CoreCompileInputs.cache
 C:\Users\Neville Bamshoot\source\repos\HackerRank\HackerRank\obj\Debug\HackerRank.csproj.CopyComplete
 C:\Users\Neville Bamshoot\source\repos\HackerRank\HackerRank\obj\Debug\HackerRank.exe
 C:\Users\Neville Bamshoot\source\repos\HackerRank\HackerRank\obj\Debug\HackerRank.pdb
