@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="BlowOutCandles.cs" />
     <Compile Include="ConvertToMilitaryTime.cs" />
+    <Compile Include="GradingStudents.cs" />
     <Compile Include="MinMaxArray.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
