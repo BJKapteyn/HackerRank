@@ -60,6 +60,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Arcade.cs" />
     <Compile Include="BlowOutCandles.cs" />
     <Compile Include="ConvertToMilitaryTime.cs" />
     <Compile Include="GradingStudents.cs" />
