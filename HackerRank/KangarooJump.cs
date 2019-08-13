@@ -10,7 +10,7 @@ namespace HackerRank
     class KangarooJump
     {
         //Two kangaroos have a starting position and a jump distance, see if they can land on the same spot at the same time.
-        public static string kangaroo(int x1, int v1, int x2, int v2)
+        public virtual string kangaroo(int x1, int v1, int x2, int v2)
         {
             string result = "YES";
             Kangaroo k1 = new Kangaroo(x1, v1);
@@ -31,6 +31,24 @@ namespace HackerRank
             }
 
             return result;
+        }
+    }
+
+    class KrooJump : KangarooJump
+    {
+        public override string kangaroo(int x1, int v1, int x2, int v2)
+        {
+            int lastJump = int.MaxValue;
+            while(x1 != x2)
+            {
+                int thisJump = Math.Abs((x1 += v1) - (x2 += v2));
+                if(thisJump >= lastJump)
+                {
+                    return "NO";
+                }
+                lastJump = thisJump;
+            }
+            return "YES";
         }
     }
 
@@ -56,9 +74,18 @@ namespace HackerRank
         [InlineData(0, 3, 4, 2, "YES")]
         public void KangarooTest1(int x1, int v1, int x2, int v2, string expected)
         {
-            string test = KangarooJump.kangaroo(x1, v1, x2, v2);
+            KangarooJump kroo = new KangarooJump();
+            string test = kroo.kangaroo(x1, v1, x2, v2);
 
             Assert.Equal(expected, test);
+        }
+
+        [Fact]
+        public void KrooTest1()
+        {
+            KrooJump kjump = new KrooJump();
+
+            Assert.Equal("NO", kjump.kangaroo(0, 2, 5, 3));
         }
     }
 }
