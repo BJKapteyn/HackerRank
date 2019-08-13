@@ -12,16 +12,16 @@ namespace HackerRank
         //Two kangaroos have a starting position and a jump distance, see if they can land on the same spot at the same time.
         public static string kangaroo(int x1, int v1, int x2, int v2)
         {
-            string result = "Yes";
+            string result = "YES";
             Kangaroo k1 = new Kangaroo(x1, v1);
             Kangaroo k2 = new Kangaroo(x2, v2);
-            int distanceLast = 0;
+            int distanceLast = int.MaxValue;
             int distanceThis = 0;
 
             while(k1.Position != k2.Position)
             {
                 distanceThis = Math.Abs(k1.Position - k2.Position);
-                if(distanceThis <= distanceLast)
+                if(distanceThis >= distanceLast)
                 {
                     return "NO";
                 }
@@ -52,12 +52,11 @@ namespace HackerRank
     public class KangarooTest
     {
         [Theory]
-        [InlineData(0, 2, 5, 3)]
-        [InlineData(0, 3, 4, 2)]
-        public void KangarooTest1(int x1, int v1, int x2, int v2)
+        [InlineData(0, 2, 5, 3, "NO")]
+        [InlineData(0, 3, 4, 2, "YES")]
+        public void KangarooTest1(int x1, int v1, int x2, int v2, string expected)
         {
             string test = KangarooJump.kangaroo(x1, v1, x2, v2);
-            string expected = "NO";
 
             Assert.Equal(expected, test);
         }
