@@ -14,28 +14,17 @@ namespace HackerRank
         public int[] countApplesAndOranges(int s, int t, int a, int b, int[] apples, int[] oranges)
         {
             int[] result = { 0, 0 };
+
             int[] appleDis = apples.Select(x => x += a).ToArray();
             int[] orangeDis = oranges.Select(x => x += b).ToArray();
 
-            foreach (int apple in appleDis)
-            {
-                if (isBetween(s, t, apple))
-                {
-                    result[0]++;
-                }
-            }
-            foreach(int orange in orangeDis)
-            {
-                if(isBetween(s, t, orange))
-                {
-                    result[1]++;
-                }
-            }
+            tallyRoofFruit(appleDis, 0, s, t, ref result);
+            tallyRoofFruit(orangeDis, 1, s, t, ref result);
 
             return result;
         }
 
-        public int[] tallyRoofFruit(int[] fruit, int[] result, int index, int low, int high)
+        public void tallyRoofFruit(int[] fruit, int index, int low, int high, ref int[] result)
         {
             foreach(int f in fruit)
             {
@@ -44,7 +33,6 @@ namespace HackerRank
                     result[index]++;
                 }
             }
-            return result;
         }
 
         public bool isBetween(int low, int high, int x)
