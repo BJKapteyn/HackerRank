@@ -13,8 +13,29 @@ namespace HackerRank
         //at positions 'a' and 'b' respectively fall on your house positioned between 's' and 't'.
         public int[] countApplesAndOranges(int s, int t, int a, int b, int[] apples, int[] oranges)
         {
+            int[] result = { 0, 0 };
 
+            foreach (int apple in apples)
+            {
+                if (isBetween(s, t, a + apple))
+                {
+                    result[0]++;
+                }
+            }
+            foreach(int orange in oranges)
+            {
+                if(isBetween(s, t, b + orange))
+                {
+                    result[1]++;
+                }
+            }
 
+            return result;
+        }
+
+        public bool isBetween(int min, int max, int x)
+        {
+            return x >= min && x <= max ? true : false;
         }
     }
 
