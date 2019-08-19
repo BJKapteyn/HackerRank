@@ -9,33 +9,33 @@ namespace HackerRank
 {
     class BetweenArrays
     {
-        public static int GetTotalX(List<int> a, List<int> b)
+        public static int GetTotalX(List<int> arr1, List<int> arr2)
         {
             //find all of the numbers that the integers of the first array are a factor of and also are a factor 
             //of all in the second array
             int result = 0;
-            int low = a.Max();
-            int high = b.Min();
+            int low = arr1.Max();
+            int high = arr2.Min();
 
             for (int i = low; i <= high; i++)
             {
-                for (int j = 0; j < a.Count; j++)
+                for (int j = 0; j < arr1.Count; j++)
                 {
-                    if (j == a.Count - 1 && i % a[j] == 0) 
+                    if (j == arr1.Count - 1 && i % arr1[j] == 0) 
                     {
-                        for(int k = 0; k < b.Count; k++)
+                        for(int k = 0; k < arr2.Count; k++)
                         {
-                            if(k == b.Count - 1 && b[k] % i == 0)
+                            if(k == arr2.Count - 1 && arr2[k] % i == 0)
                             {
                                 result++;
                             }
-                            if(b[k] % i != 0)
+                            if(arr2[k] % i != 0)
                             {
                                 break;
                             }
                         }
                     }
-                    if(i % a[j] != 0)
+                    if(i % arr1[j] != 0)
                     {
                         break;
                     }
