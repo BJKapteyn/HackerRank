@@ -59,5 +59,16 @@ namespace HackerRank
 
             Assert.Equal(expected, actual);
         }
+
+        [Fact]
+        public void BetweenTest2()
+        {
+            int expected = 2;
+            List<int> a = new List<int> { 2, 6 };
+            List<int> b = new List<int> { 24, 36 };
+            int actual = BetweenArrays.GetTotalX(a, b);
+
+            Assert.Equal(expected, actual);
+        }
     }
 }
