@@ -24,11 +24,12 @@ namespace HackerRank
                 int horizontal = 0;
                 for(int k = 0; k < s[i].Length; k++)
                 {
+                    int verticle = 0;
                     horizontal += s[i][k];
                 }
             }
 
-            return results;
+            return results.Distinct().ToList();
         }
 
         public static int[][] Copy(int[][] arr)
