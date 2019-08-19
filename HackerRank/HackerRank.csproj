@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="AppleTree.cs" />
     <Compile Include="Arcade.cs" />
+    <Compile Include="BetweenArrays.cs" />
     <Compile Include="BlowOutCandles.cs" />
     <Compile Include="ConvertToMilitaryTime.cs" />
     <Compile Include="GradingStudents.cs" />
