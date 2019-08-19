@@ -67,6 +67,7 @@
     <Compile Include="ConvertToMilitaryTime.cs" />
     <Compile Include="GradingStudents.cs" />
     <Compile Include="KangarooJump.cs" />
+    <Compile Include="MagicSquare.cs" />
     <Compile Include="MinMaxArray.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
