@@ -12,10 +12,25 @@ namespace HackerRank
         public static int formingMagicSquare(int[][] s)
         {
             int result = 0;
-
-
+            int[][] copyArr = Copy(s);
             return result;
         }
+
+        public static List<int> TotalsReduced(int[][] s)
+        {
+            List<int> results = new List<int>();
+            for(int i = 0; i < s.Length; i++)
+            {
+                int horizontal = 0;
+                for(int k = 0; k < s[i].Length; k++)
+                {
+                    horizontal += s[i][k];
+                }
+            }
+
+            return results;
+        }
+
         public static int[][] Copy(int[][] arr)
         {
             int[][] copy = new int[3][];
