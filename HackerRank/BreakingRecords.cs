@@ -15,25 +15,25 @@ namespace HackerRank
             //and personal lowest score per game. Returned is an array with number of times highest is broken and lowest respectively
 
             int[] result = { 0, 0 };
-            int lowest = -1;
-            int highest = -1;
+            int lowScore = -1;
+            int highScore = -1;
 
             foreach(int score in scores)
             {
-                if (lowest < 0 && highest < 0)
+                if (lowScore < 0 && highScore < 0)
                 {
-                    lowest = score;
-                    highest = score;
+                    lowScore = score;
+                    highScore = score;
                     continue;
                 }
-                if (score > highest)
+                if (score > highScore)
                 {
-                    highest = score;
+                    highScore = score;
                     result[0]++;
                 }
-                else if (score < lowest)
+                else if (score < lowScore)
                 {
-                    lowest = score;
+                    lowScore = score;
                     result[1]++;
                 }
             }
