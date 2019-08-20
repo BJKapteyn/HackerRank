@@ -19,14 +19,19 @@ namespace HackerRank
         public static List<int> TotalsReduced(int[][] s)
         {
             List<int> results = new List<int>();
+            int vertical = 0;
             for(int i = 0; i < s.Length; i++)
             {
                 int horizontal = 0;
                 for(int k = 0; k < s[i].Length; k++)
                 {
-                    int verticle = 0;
+                    vertical += s[k][i];
                     horizontal += s[i][k];
                 }
+                results.Add(vertical);
+                results.Add(horizontal);
+                vertical = 0;
+                horizontal = 0;
             }
 
             return results.Distinct().ToList();
@@ -55,7 +60,8 @@ namespace HackerRank
         [Fact]
         public void MagicSquareTest1()
         {
-
+            int[][] test = { new int[] { 8, 2, 3 }, new int[] { 9, 7, 3 }, new int[] { 8, 2, 4 } };
+            List<int> actual = MagicSquare.TotalsReduced(test);
         }
 
         [Fact]
