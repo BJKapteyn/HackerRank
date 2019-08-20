@@ -11,10 +11,34 @@ namespace HackerRank
     {
         public static int[] breakingRecords(int[] scores)
         {
-            int[] result = new int[2];
+            //basketball player wants to see how many times they've set their personal highest score per game
+            //and personal lowest score per game. Returned is an array with number of times highest is broken and lowest respectively
+
+            int[] result = { 0, 0 };
+            int lowest = -1;
+            int highest = -1;
+
+            foreach(int score in scores)
+            {
+                if (lowest < 0 && highest < 0)
+                {
+                    lowest = score;
+                    highest = score;
+                    continue;
+                }
+                if (score > highest)
+                {
+                    highest = score;
+                    result[0]++;
+                }
+                else if (score < lowest)
+                {
+                    lowest = score;
+                    result[1]++;
+                }
+            }
 
             return result;
-
         }
     }
 
@@ -28,6 +52,18 @@ namespace HackerRank
             int[] expected = { 4, 0 };
             int[] actual = BreakingRecords.breakingRecords(test);
 
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void BreakingRecordsTest2()
+        {
+            int[] test = { 10, 5, 20, 20, 4, 5, 2, 25, 1 };
+
+            int[] expected = { 2, 4 };
+            int[] actual = BreakingRecords.breakingRecords(test);
+
+            Assert.Equal(expected, actual);
         }
     }
 }
