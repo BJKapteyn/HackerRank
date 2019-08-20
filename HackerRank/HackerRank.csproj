@@ -64,6 +64,7 @@
     <Compile Include="Arcade.cs" />
     <Compile Include="BetweenArrays.cs" />
     <Compile Include="BlowOutCandles.cs" />
+    <Compile Include="BreakingRecords.cs" />
     <Compile Include="ConvertToMilitaryTime.cs" />
     <Compile Include="GradingStudents.cs" />
     <Compile Include="KangarooJump.cs" />
