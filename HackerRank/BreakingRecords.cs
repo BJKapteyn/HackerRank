@@ -9,10 +9,10 @@ namespace HackerRank
 {
     class BreakingRecords
     {
+        //basketball player wants to see how many times they've set their personal highest score per game
+        //and personal lowest score per game. Returned is an array with number of times highest is broken and lowest respectively
         public static int[] breakingRecords(int[] scores)
         {
-            //basketball player wants to see how many times they've set their personal highest score per game
-            //and personal lowest score per game. Returned is an array with number of times highest is broken and lowest respectively
 
             int[] result = { 0, 0 };
             int lowScore = -1;
