@@ -63,6 +63,7 @@
     <Compile Include="AppleTree.cs" />
     <Compile Include="Arcade.cs" />
     <Compile Include="BetweenArrays.cs" />
+    <Compile Include="BirthdayCake.cs" />
     <Compile Include="BlowOutCandles.cs" />
     <Compile Include="BreakingRecords.cs" />
     <Compile Include="ConvertToMilitaryTime.cs" />
