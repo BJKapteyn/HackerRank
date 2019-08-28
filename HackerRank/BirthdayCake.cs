@@ -9,12 +9,16 @@ namespace HackerRank
 {
     class BirthdayCake
     {
-        //input list of numbers with 
+        //Lily has a chocolate bar that she wants to share it with Ron for his birthday.Each of 
+        //    the squares has an integer on it. She decides to share a contiguous segment of the 
+        //    bar selected such that the length of the segment matches Ron's birth month and the 
+        //    sum of the integers on the squares is equal to his birth day. You must determine 
+        //    how many ways she can divide the chocolate.
         public static int Birthday(List<int> s, int day, int month)
         {
             int result = 0;
             int total = 0;
-            for (int k = 0; k < s.Count - month; k++)
+            for (int k = 0; k < s.Count - month + 1; k++)
             {
                 for (int i = k; i < k + month; i++)
                 {
