@@ -37,6 +37,7 @@ namespace HackerRank
                     mostBirds = numOfBirds;
                     mostBirdsIndex = i;
                 }
+                numOfBirds = 0;
             }
             result = mostBirdsIndex;
 
@@ -51,6 +52,15 @@ namespace HackerRank
         {
             int[] test = { 1, 4, 4, 4, 5, 3 };
             int expected = 4;
+            int actual = MigratoryBirds.MigBirds(test);
+
+            Assert.Equal(expected, actual);
+        }
+        [Fact]
+        public static void MigTest2()
+        {
+            int[] test = { 1, 2, 3, 4, 5, 4, 3, 2, 1, 3, 4 };
+            int expected = 3;
             int actual = MigratoryBirds.MigBirds(test);
 
             Assert.Equal(expected, actual);
