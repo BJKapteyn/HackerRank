@@ -21,7 +21,6 @@ namespace HackerRank
             int[] migBirds = { 1, 2, 3, 4, 5 };
             int numOfBirds = 0;
             int mostBirds = 0;
-            int mostBirdsIndex = 0;
 
             for (int i = 0; i < migBirds.Length; i++)
             {
@@ -35,11 +34,11 @@ namespace HackerRank
                 if(numOfBirds > mostBirds)
                 {
                     mostBirds = numOfBirds;
-                    mostBirdsIndex = i;
+                    result = i;
                 }
                 numOfBirds = 0;
             }
-            result = migBirds[mostBirdsIndex];
+            result = migBirds[result];
 
             return result;
         }
