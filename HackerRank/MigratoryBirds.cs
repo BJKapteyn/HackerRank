@@ -24,8 +24,8 @@ namespace HackerRank
 
             for (int i = 0; i < migBirds.Length; i++)
             {
-                numOfBirds = howManyBirds(birds, migBirds[i]);
-                if(numOfBirds > mostBirds)
+                numOfBirds = birds.FindAll(x => x == migBirds[i]).ToList().Count;
+                if (numOfBirds > mostBirds)
                 {
                     mostBirds = numOfBirds;
                     result = i;
@@ -33,12 +33,6 @@ namespace HackerRank
                 numOfBirds = 0;
             }
             result = migBirds[result];
-
-            return result;
-        }
-        private static int howManyBirds(List<int> birds, int num)
-        {
-            int result = birds.FindAll(i => i == num).ToList().Count;
 
             return result;
         }
