@@ -15,7 +15,7 @@ namespace HackerRank
     //    choose the type with the smallest ID number.
     class MigratoryBirds
     {
-        public static int MigBirds(int[] birds)
+        public static int MigBirds(List<int> birds)
         {
             int result = 0;
             int[] migBirds = { 1, 2, 3, 4, 5 };
@@ -25,7 +25,7 @@ namespace HackerRank
 
             for (int i = 0; i < migBirds.Length; i++)
             {
-                for (int k = 0; k < birds.Length; k++)
+                for (int k = 0; k < birds.Count; k++)
                 {
                     if(migBirds[i] == birds[k])
                     {
@@ -50,7 +50,7 @@ namespace HackerRank
         [Fact]
         public static void MigTest1()
         {
-            int[] test = { 1, 4, 4, 4, 5, 3 };
+            List<int> test = new List<int>() { 1, 4, 4, 4, 5, 3 };
             int expected = 4;
             int actual = MigratoryBirds.MigBirds(test);
 
@@ -59,7 +59,7 @@ namespace HackerRank
         [Fact]
         public static void MigTest2()
         {
-            int[] test = { 1, 2, 3, 4, 5, 4, 3, 2, 1, 3, 4 };
+            List<int> test = new List<int>() { 1, 2, 3, 4, 5, 4, 3, 2, 1, 3, 4 };
             int expected = 3;
             int actual = MigratoryBirds.MigBirds(test);
 
