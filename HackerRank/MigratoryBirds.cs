@@ -39,7 +39,7 @@ namespace HackerRank
                 }
                 numOfBirds = 0;
             }
-            result = mostBirdsIndex;
+            result = migBirds[mostBirdsIndex];
 
             return result;
         }
