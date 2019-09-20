@@ -8,6 +8,11 @@ namespace HackerRank
 {
     class DivisibleSum
     {
+        static int divisibleSumPairs(int n, int k, int[] ar)
+        {
+
+
+        }
     }
 
     public class DivisibleSumTest
