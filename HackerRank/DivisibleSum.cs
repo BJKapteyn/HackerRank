@@ -16,16 +16,16 @@ namespace HackerRank
 
             for(int i = 0; i < ar.Length; i++)
             {
-                if(i > 0 && ar[i] == ar[i-1])
-                {
-                    continue;
-                }
+                //if (i > 0 && ar[i] == ar[i - 1])
+                //{
+                //    continue;
+                //}
                 for (int x = i + 1; x < ar.Length; x++)
                 {
-                    if(ar[x] == ar[x -1])
-                    {
-                        continue;
-                    }
+                    //if(ar[x] == ar[x -1])
+                    //{
+                    //    continue;
+                    //}
                     if((ar[i] + ar[x]) % k == 0)
                     {
                         result++;
