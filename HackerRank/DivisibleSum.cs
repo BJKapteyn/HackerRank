@@ -19,7 +19,6 @@ namespace HackerRank
 
                 for (int x = i + 1; x < ar.Length; x++)
                 {
-
                     if((ar[i] + ar[x]) % k == 0)
                     {
                         result++;
