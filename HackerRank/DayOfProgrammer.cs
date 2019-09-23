@@ -18,6 +18,10 @@ namespace HackerRank
                 {
                     result = "12.09." + year;
                 }
+                else
+                {
+                    result = "13.09." + year;
+                }
             }
             else if(year >= 1919)
             {
@@ -25,11 +29,12 @@ namespace HackerRank
                 {
                     result = "12.09." + year;
                 }
+                else
+                {
+                    result = "13.09." + year;
+                }
             }
-            else
-            {
-                result = "13.09." + year;
-            }
+            
 
             return result;
 
@@ -40,9 +45,10 @@ namespace HackerRank
     {
         [Theory] 
         [InlineData(2017, "13.09.2017")]
+        [InlineData(1984, "12.09.1984")]
+        [InlineData(1800, "12.09.1800")]
         public void DOPTest1(int year, string expected)
         {
-            int test = 2017;
             string actual = DayOfProgrammer.dayOfProgrammer(year);
 
             Assert.Equal(expected, actual);

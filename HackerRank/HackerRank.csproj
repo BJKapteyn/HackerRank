@@ -67,6 +67,7 @@
     <Compile Include="BlowOutCandles.cs" />
     <Compile Include="BreakingRecords.cs" />
     <Compile Include="ConvertToMilitaryTime.cs" />
+    <Compile Include="DayOfProgrammer.cs" />
     <Compile Include="DivisibleSum.cs" />
     <Compile Include="GradingStudents.cs" />
     <Compile Include="KangarooJump.cs" />
