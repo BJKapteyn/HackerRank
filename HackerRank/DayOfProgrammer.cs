@@ -17,10 +17,6 @@ namespace HackerRank
                 {
                     return "12.09." + year;
                 }
-                else
-                {
-                    return "13.09." + year;
-                }
             }
             else if(year >= 1919)
             {
@@ -28,12 +24,8 @@ namespace HackerRank
                 {
                     return "12.09." + year;
                 }
-                else
-                {
-                    return "13.09." + year;
-                }
             }
-            
+            return "13.09." + year;
         }
     }
 
