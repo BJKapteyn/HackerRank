@@ -11,33 +11,29 @@ namespace HackerRank
     {
         public static string dayOfProgrammer(int year)
         {
-            string result = "";
             if(year < 1919)
             {
                 if(year % 4 == 0)
                 {
-                    result = "12.09." + year;
+                    return "12.09." + year;
                 }
                 else
                 {
-                    result = "13.09." + year;
+                    return "13.09." + year;
                 }
             }
             else if(year >= 1919)
             {
                 if(year % 4 == 0 || year % 400 == 0)
                 {
-                    result = "12.09." + year;
+                    return "12.09." + year;
                 }
                 else
                 {
-                    result = "13.09." + year;
+                    return "13.09." + year;
                 }
             }
             
-
-            return result;
-
         }
     }
 
