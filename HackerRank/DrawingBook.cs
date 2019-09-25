@@ -7,7 +7,7 @@ using Xunit;
 
 namespace HackerRank
 {
-    //find the lowest amount of page turns for a book with p pages and a page number of n
+    //find the lowest amount of page turns for a book with n pages and a page number of p
     class DrawingBook
     {
         public static int pageCount(int n, int p = 0)
@@ -15,20 +15,17 @@ namespace HackerRank
             int result = 0;
             int fromFront = 0;
             int fromBack = 0;
-            if(n == p)
+            if(p == n)
             {
                 return 0;
             }
-
-
-            fromFront = n / 2;
-
-            if(p % 2 == 0)
+            if(n % 2 == 0)
             {
-                p++;
+                n++;
             }
 
-            fromBack = (p - n) / 2;
+            fromFront = p / 2;
+            fromBack = (n - p) / 2;
             
             List<int> frontAndBack = new List<int>() { fromFront, fromBack };
             result = frontAndBack.Min();
@@ -39,8 +36,10 @@ namespace HackerRank
     public class DrawingBookTest
     {
         [Theory]
-        [InlineData (2, 6, 1)]
-        [InlineData(4, 5, 0)]
+        [InlineData (6, 2, 1)]
+        [InlineData(5, 4, 0)]
+        [InlineData(14, 7, 3)]
+        [InlineData(14, 8, 3)]
         public void DrawingBookTest1(int n, int p, int expected)
         {
             int actual = DrawingBook.pageCount(n, p);

@@ -1,4 +1,3 @@
-C:\Users\Neville Bamshoot\source\repos\HackerRank\HackerRank\obj\Debug\HackerRank.csprojAssemblyReference.cache
 C:\Users\Neville Bamshoot\source\repos\HackerRank\HackerRank\obj\Debug\HackerRank.csproj.CoreCompileInputs.cache
 C:\Users\Neville Bamshoot\source\repos\HackerRank\HackerRank\bin\Debug\xunit.abstractions.dll
 C:\Users\Neville Bamshoot\source\repos\HackerRank\HackerRank\bin\Debug\xunit.runner.visualstudio.testadapter.dll
