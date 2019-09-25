@@ -69,6 +69,7 @@
     <Compile Include="ConvertToMilitaryTime.cs" />
     <Compile Include="DayOfProgrammer.cs" />
     <Compile Include="DivisibleSum.cs" />
+    <Compile Include="DrawingBook.cs" />
     <Compile Include="GradingStudents.cs" />
     <Compile Include="KangarooJump.cs" />
     <Compile Include="MagicSquare.cs" />
