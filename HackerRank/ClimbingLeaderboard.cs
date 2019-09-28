@@ -15,23 +15,34 @@ namespace HackerRank
             int[] scorePlacements = new int[alice.Length];
             List<long> scoresList = scores.ToList();
             //create scoreboard and remove duplicates and order the list
-            List<Player> playerScoreboard = CreateScoreBoard(scores).Distinct().OrderByDescending(x => x.Score).ToList();
+            List<Player> playerScoreboard = CreateScoreBoard(scores)
+                                                .GroupBy(x => x.Score)
+                                                .Select(x => x.First())
+                                                .OrderByDescending(x => x.Score)
+                                                .ToList();
 
             for(int i = 0; i < alice.Length; i++)
             {
                 Player Alice = new Player("Alice", alice[i]);
                 playerScoreboard.Add(Alice);
-                playerScoreboard.OrderByDescending(x => x.Score);
+                playerScoreboard = playerScoreboard.OrderByDescending(x => x.Score).ToList();
                 int scoreIndex = playerScoreboard.IndexOf(Alice);
                 //if alice's score ties another score, add that placement instead, placement starts at 1, 2, 3 etc so actual placement is 
                 //index + 1;
-                if(playerScoreboard[scoreIndex - 1].Score == Alice.Score)
+                try
                 {
-                    scorePlacements[i] = scoreIndex;
+                    if (playerScoreboard[scoreIndex - 1].Score == Alice.Score)
+                    {
+                        scorePlacements[i] = scoreIndex;
+                    }
+                    else
+                    {
+                        scorePlacements[i] = scoreIndex + 1;
+                    }
                 }
-                else
+                catch(ArgumentOutOfRangeException)
                 {
-                    scorePlacements[i] = scoreIndex + 1;
+                    scorePlacements[i] = 1;
                 }
                 playerScoreboard.Remove(Alice);
             }
