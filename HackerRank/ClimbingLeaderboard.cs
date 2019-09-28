@@ -13,42 +13,65 @@ namespace HackerRank
         public static int[] climbingLeaderboard(long[] scores, long[] alice)
         {
             int[] scorePlacements = new int[alice.Length];
-            List<long> scoresList = scores.ToList();
-            //create scoreboard and remove duplicates and order the list
-            List<Player> playerScoreboard = CreateScoreBoard(scores)
-                                                .GroupBy(x => x.Score)
-                                                .Select(x => x.First())
-                                                .OrderByDescending(x => x.Score)
-                                                .ToList();
+            List<long> scoresList = scores.Distinct()
+                                        .OrderByDescending(x => x)
+                                        .ToList();
 
             for(int i = 0; i < alice.Length; i++)
             {
-                Player Alice = new Player("Alice", alice[i]);
-                playerScoreboard.Add(Alice);
-                playerScoreboard = playerScoreboard.OrderByDescending(x => x.Score).ToList();
-                int scoreIndex = playerScoreboard.IndexOf(Alice);
-                //if alice's score ties another score, add that placement instead, placement starts at 1, 2, 3 etc so actual placement is 
-                //index + 1;
-                try
-                {
-                    if (playerScoreboard[scoreIndex - 1].Score == Alice.Score)
-                    {
-                        scorePlacements[i] = scoreIndex;
-                    }
-                    else
-                    {
-                        scorePlacements[i] = scoreIndex + 1;
-                    }
-                }
-                catch(ArgumentOutOfRangeException)
+                scoresList.Add(alice[i]);
+                scoresList = scoresList.OrderByDescending(x => x).ToList();
+                
+                if(scoresList.IndexOf(alice[i]) == 0)
                 {
                     scorePlacements[i] = 1;
                 }
-                playerScoreboard.Remove(Alice);
+                else
+                {
+                    scorePlacements[i] = scoresList.IndexOf(alice[i]) + 1;
+                }
             }
-
-            return scorePlacements.ToArray();
+            return scorePlacements;
         }
+        //public static int[] climbingLeaderboard(long[] scores, long[] alice)
+        //{
+        //    int[] scorePlacements = new int[alice.Length];
+        //    List<long> scoresList = scores.ToList();
+        //    //create scoreboard and remove duplicates and order the list
+        //    List<Player> playerScoreboard = CreateScoreBoard(scores)
+        //                                        .GroupBy(x => x.Score)
+        //                                        .Select(x => x.First())
+        //                                        .OrderByDescending(x => x.Score)
+        //                                        .ToList();
+
+        //    for(int i = 0; i < alice.Length; i++)
+        //    {
+        //        Player Alice = new Player("Alice", alice[i]);
+        //        playerScoreboard.Add(Alice);
+        //        playerScoreboard = playerScoreboard.OrderByDescending(x => x.Score).ToList();
+        //        int scoreIndex = playerScoreboard.IndexOf(Alice);
+        //        //if alice's score ties another score, add that placement instead, placement starts at 1, 2, 3 etc so actual placement is 
+        //        //index + 1;
+        //        try
+        //        {
+        //            if (playerScoreboard[scoreIndex - 1].Score == Alice.Score)
+        //            {
+        //                scorePlacements[i] = scoreIndex;
+        //            }
+        //            else
+        //            {
+        //                scorePlacements[i] = scoreIndex + 1;
+        //            }
+        //        }
+        //        catch(ArgumentOutOfRangeException)
+        //        {
+        //            scorePlacements[i] = 1;
+        //        }
+        //        playerScoreboard.Remove(Alice);
+        //    }
+
+        //    return scorePlacements.ToArray();
+        //}
 
         public static List<Player> CreateScoreBoard(long[] scores)
         {
@@ -88,5 +111,6 @@ namespace HackerRank
 
             Assert.Equal(expected, actual);
         }
+
     }
 }
