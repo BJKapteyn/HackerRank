@@ -15,3 +15,4 @@ C:\Users\Neville Bamshoot\source\repos\HackerRank\HackerRank\bin\Debug\xunit.exe
 C:\Users\Neville Bamshoot\source\repos\HackerRank\HackerRank\obj\Debug\HackerRank.csproj.CopyComplete
 C:\Users\Neville Bamshoot\source\repos\HackerRank\HackerRank\obj\Debug\HackerRank.exe
 C:\Users\Neville Bamshoot\source\repos\HackerRank\HackerRank\obj\Debug\HackerRank.pdb
+C:\Users\Neville Bamshoot\source\repos\HackerRank\HackerRank\obj\Debug\HackerRank.csprojAssemblyReference.cache
