@@ -27,6 +27,42 @@ namespace HackerRank
             }
             return scorePlacements;
         }
+
+        public static int FindIndexBinarySearch(long[] nums, long num)
+        {
+            int mid = 0;
+            int low = 0;
+            int high = nums.Length - 1;
+            if (num == nums[low])
+            {
+                return low;
+            }
+            else if(num == nums[high])
+            {
+                return high;
+            }
+            while (low < high)
+            {
+                mid = (high - low) / 2;
+                if (num == nums[mid])
+                {
+                    return mid;
+                }
+                else if (num >= nums[mid - 1] || num <= nums[mid + 1])
+                {
+                    break;
+                }
+                if (num > nums[mid])
+                {
+                    low = mid + 1;
+                }
+                else
+                {
+                    high = mid - 1;
+                }
+            }
+            if()
+        }
         //public static int[] climbingLeaderboard(long[] scores, long[] alice)
         //{
         //    int[] scorePlacements = new int[alice.Length];
