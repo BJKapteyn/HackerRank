@@ -28,40 +28,48 @@ namespace HackerRank
             return scorePlacements;
         }
 
-        public static int FindIndexBinarySearch(long[] nums, long num)
+        public static int FindIndexReverseBinarySearch(long[] nums, long num)
         {
             int mid = 0;
-            int low = 0;
-            int high = nums.Length - 1;
-            if (num == nums[low])
+            int highNumIndex = 0;
+            int lowNumIndex = nums.Length - 1;
+            if (num <= nums[lowNumIndex])
             {
-                return low;
+                return lowNumIndex;
             }
-            else if(num == nums[high])
+            else if(num >= nums[highNumIndex])
             {
-                return high;
+                return highNumIndex;
             }
-            while (low < high)
+            while (highNumIndex <= lowNumIndex)
             {
-                mid = (high - low) / 2;
+                mid = (lowNumIndex + highNumIndex) / 2;
                 if (num == nums[mid])
                 {
                     return mid;
                 }
-                else if (num >= nums[mid - 1] || num <= nums[mid + 1])
+                else if (num > nums[mid + 1] && num < nums[mid - 1])
                 {
                     break;
                 }
-                if (num > nums[mid])
+                if (num < nums[mid])
                 {
-                    low = mid + 1;
+                    highNumIndex = mid + 1;
                 }
                 else
                 {
-                    high = mid - 1;
+                    lowNumIndex = mid - 1;
                 }
             }
-            if()
+            if(num < nums[mid-1] && num > nums[mid])
+            {
+                return mid;
+            }
+            else if(num < nums[mid] && num > nums[mid+1])
+            {
+                return mid + 1;
+            }
+            return -1;
         }
         //public static int[] climbingLeaderboard(long[] scores, long[] alice)
         //{
@@ -142,5 +150,16 @@ namespace HackerRank
             Assert.Equal(expected, actual);
         }
 
+        [Theory]
+        [InlineData(new long[] { 9, 8, 7, 6, 5, 3, 2, 1, 0}, 4, 5)]
+        [InlineData(new long[] { 9, 8, 7, 6, 5, 4, 3, 2, 1}, 4, 5)]
+        [InlineData(new long[] { 9, 8, 7, 6, 5, 4, 3, 2, 1 }, 10, 0)]
+        [InlineData(new long[] { 90, 80, 70, 60, 50, 40, 30, 20, 10 }, 25, 7)]
+        public void ClimbingLeaderboardBinaryTest1(long[] scores, long score, int expected)
+        {
+            int actual = ClimbingLeaderboard.FindIndexReverseBinarySearch(scores, score);
+
+            Assert.Equal(expected, actual);
+        }
     }
 }
