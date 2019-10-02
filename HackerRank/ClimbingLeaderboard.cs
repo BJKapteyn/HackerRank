@@ -23,8 +23,8 @@ namespace HackerRank
                 //the find last index returns the index at which the score beating alice is
                 //her actual scoreboard number is her actual index plus 1 so plus 2 overall
 
-                scorePlacements[i] = FindIndexReverseBinarySearch(scoresList, alice[i]);
-            }
+                scorePlacements[i] = FindIndexReverseBinarySearch(scoresList, alice[i]) + 1;
+            } 
             return scorePlacements;
         }
 
@@ -33,7 +33,11 @@ namespace HackerRank
             int mid = 0;
             int highNumIndex = 0;
             int lowNumIndex = nums.Count - 1;
-            if (num <= nums[lowNumIndex])
+            if (num < nums[lowNumIndex])
+            {
+                return lowNumIndex + 1;
+            }
+            else if(num == nums[lowNumIndex])
             {
                 return lowNumIndex;
             }
