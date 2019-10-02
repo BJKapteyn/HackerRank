@@ -13,23 +13,17 @@ namespace HackerRank
         public static int[] climbingLeaderboard(long[] scores, long[] alice)
         {
             int[] scorePlacements = new int[alice.Length];
-            List<long> scoresList = scores.Distinct()
-                                        .OrderByDescending(x => x)
-                                        .ToList();
+            List<long> scoresList = scores.Distinct().ToList();
+            scoresList.Sort();
+            scoresList.Reverse();
 
             for(int i = 0; i < alice.Length; i++)
             {
-                scoresList.Add(alice[i]);
-                scoresList = scoresList.OrderByDescending(x => x).ToList();
-                
-                if(scoresList.IndexOf(alice[i]) == 0)
-                {
-                    scorePlacements[i] = 1;
-                }
-                else
-                {
-                    scorePlacements[i] = scoresList.IndexOf(alice[i]) + 1;
-                }
+                //the find last index returns the index at which the score beating alice is
+                //her actual scoreboard number is her actual index plus 1 so plus 2 overall
+                int alicePlacement = scoresList.FindLastIndex(x => x > alice[i]) + 2;
+
+                scorePlacements[i] = alicePlacement;
             }
             return scorePlacements;
         }
