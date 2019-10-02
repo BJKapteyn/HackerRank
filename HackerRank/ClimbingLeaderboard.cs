@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,27 +18,26 @@ namespace HackerRank
             scoresList.Sort();
             scoresList.Reverse();
 
-            for(int i = 0; i < alice.Length; i++)
+            for (int i = 0; i < alice.Length; i++)
             {
                 //the find last index returns the index at which the score beating alice is
                 //her actual scoreboard number is her actual index plus 1 so plus 2 overall
-                int alicePlacement = scoresList.FindLastIndex(x => x > alice[i]) + 2;
 
-                scorePlacements[i] = alicePlacement;
+                scorePlacements[i] = FindIndexReverseBinarySearch(scoresList, alice[i]);
             }
             return scorePlacements;
         }
 
-        public static int FindIndexReverseBinarySearch(long[] nums, long num)
+        public static int FindIndexReverseBinarySearch(List<long> nums, long num)
         {
             int mid = 0;
             int highNumIndex = 0;
-            int lowNumIndex = nums.Length - 1;
+            int lowNumIndex = nums.Count - 1;
             if (num <= nums[lowNumIndex])
             {
                 return lowNumIndex;
             }
-            else if(num >= nums[highNumIndex])
+            else if (num >= nums[highNumIndex])
             {
                 return highNumIndex;
             }
@@ -61,11 +61,11 @@ namespace HackerRank
                     lowNumIndex = mid - 1;
                 }
             }
-            if(num < nums[mid-1] && num > nums[mid])
+            if (num < nums[mid - 1] && num > nums[mid])
             {
                 return mid;
             }
-            else if(num < nums[mid] && num > nums[mid+1])
+            else if (num < nums[mid] && num > nums[mid + 1])
             {
                 return mid + 1;
             }
@@ -111,38 +111,55 @@ namespace HackerRank
         //    return scorePlacements.ToArray();
         //}
 
-        public static List<Player> CreateScoreBoard(long[] scores)
-        {
-            List<Player> scoreBoard = new List<Player>();
-            foreach(long score in scores)
-            {
-                Player player = new Player(score);
-                scoreBoard.Add(player);
-            }
-            return scoreBoard;
-        }
+        //    public static List<Player> CreateScoreBoard(long[] scores)
+        //    {
+        //        List<Player> scoreBoard = new List<Player>();
+        //        foreach(long score in scores)
+        //        {
+        //            Player player = new Player(score);
+        //            scoreBoard.Add(player);
+        //        }
+        //        return scoreBoard;
+        //    }
+        //}
+        //public class Player
+        //{
+        //    public string Name { get; set; } = "OtherPlayer";
+        //    public long Score { get; set; }
+
+        //    public Player(string name, long score)
+        //    {
+        //        Name = name;
+        //        Score = score;
+        //    }
+        //    public Player(long score)
+        //    {
+        //        Score = score;
+        //    }
+        //}
     }
-    public class Player
+    public class ClimbingLeaderboardTestData : IEnumerable<object[]>
     {
-        public string Name { get; set; } = "OtherPlayer";
-        public long Score { get; set; }
+        public static List<long> data1 = new List<long>() { 9, 8, 7, 6, 5, 3, 2, 1, 0 };
+        public static List<long> data2 = new List<long>() { 9, 8, 7, 6, 5, 4, 3, 2, 1 };
+        public static List<long> data3 = new List<long>() { 9, 8, 7, 6, 5, 4, 3, 2, 1 };
+        public static List<long> data4 = new List<long>() { 90, 80, 70, 60, 50, 40, 30, 20, 10 };
+        private readonly List<object[]> Data = new List<object[]>
+        {
+            new object[] { data1, (long)4, (long)5 },
+            new object[] { data2, (long)4, (long)5 },
+            new object[] { data3, (long)10, (long)0 },
+            new object[] {data4, (long)25, (long)7 }
+        };
+        public IEnumerator<object[]> GetEnumerator() => Data.GetEnumerator();
 
-        public Player(string name, long score)
-        {
-            Name = name;
-            Score = score;
-        }
-        public Player(long score)
-        {
-            Score = score;
-        }
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
-
     public class ClimbingLeaderboardTest
     {
-        [Theory] 
-        [InlineData(new long[] {100, 100, 50, 40, 40, 20, 10 }, new long[] {5, 25, 50, 120 }, new int[] {6, 4, 2, 1 })]
-        [InlineData(new long[] { 100, 90, 90, 80, 75, 60 }, new long[] {50, 65, 77, 90, 102 }, new int[] { 6,5, 4, 2, 1})]
+        [Theory]
+        [InlineData(new long[] { 100, 100, 50, 40, 40, 20, 10 }, new long[] { 5, 25, 50, 120 }, new int[] { 6, 4, 2, 1 })]
+        [InlineData(new long[] { 100, 90, 90, 80, 75, 60 }, new long[] { 50, 65, 77, 90, 102 }, new int[] { 6, 5, 4, 2, 1 })]
         public void ClimbingLeaderboardTest1(long[] scores, long[] alice, int[] expected)
         {
             int[] actual = ClimbingLeaderboard.climbingLeaderboard(scores, alice);
@@ -151,11 +168,8 @@ namespace HackerRank
         }
 
         [Theory]
-        [InlineData(new long[] { 9, 8, 7, 6, 5, 3, 2, 1, 0}, 4, 5)]
-        [InlineData(new long[] { 9, 8, 7, 6, 5, 4, 3, 2, 1}, 4, 5)]
-        [InlineData(new long[] { 9, 8, 7, 6, 5, 4, 3, 2, 1 }, 10, 0)]
-        [InlineData(new long[] { 90, 80, 70, 60, 50, 40, 30, 20, 10 }, 25, 7)]
-        public void ClimbingLeaderboardBinaryTest1(long[] scores, long score, int expected)
+        [ClassData(typeof(ClimbingLeaderboardTestData))]
+        public void ClimbingLeaderboardBinaryTest1(List<long> scores, long score, int expected)
         {
             int actual = ClimbingLeaderboard.FindIndexReverseBinarySearch(scores, score);
 
