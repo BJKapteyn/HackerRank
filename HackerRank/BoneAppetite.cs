@@ -21,6 +21,19 @@ namespace HackerRank
         {
             string result = "";
 
+            int totalBill = bill.Sum();
+            int billMinusSplit = (totalBill - bill[k]) / 2;
+            int totalBillSplit = totalBill / 2;
+            if(billMinusSplit == b)
+            {
+                result = "Bon Appetit";
+            }
+            else
+            {
+                result = (Math.Abs(billMinusSplit - b)).ToString();
+            }
+            
+
             return result;
         }
         public static void bonAppetit(List<int> bill, int k, int b)

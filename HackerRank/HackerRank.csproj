@@ -65,6 +65,7 @@
     <Compile Include="BetweenArrays.cs" />
     <Compile Include="BirthdayCake.cs" />
     <Compile Include="BlowOutCandles.cs" />
+    <Compile Include="BoneAppetite.cs" />
     <Compile Include="BreakingRecords.cs" />
     <Compile Include="ClimbingLeaderboard.cs" />
     <Compile Include="ConvertToMilitaryTime.cs" />
