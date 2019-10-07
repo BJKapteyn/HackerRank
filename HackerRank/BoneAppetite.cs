@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace HackerRank
 {
-    class BoneAppetite
+    class BoneAppetit
     {
+        static void bonAppetit(List<int> bill, int k, int b)
+        {
+
+
+        }
+    }
+    public class BoneAppetitTest
+    {
+
     }
 }
