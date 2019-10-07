@@ -38,8 +38,21 @@ namespace HackerRank
         }
         public static void bonAppetit(List<int> bill, int k, int b)
         {
+            string result = "";
 
+            int totalBill = bill.Sum();
+            int billMinusSplit = (totalBill - bill[k]) / 2;
+            int totalBillSplit = totalBill / 2;
+            if (billMinusSplit == b)
+            {
+                result = "Bon Appetit";
+            }
+            else
+            {
+                result = (Math.Abs(billMinusSplit - b)).ToString();
+            }
 
+            Console.WriteLine(result);
         }
     }
     public class BoneAppetitTestData : IEnumerable<object[]>
