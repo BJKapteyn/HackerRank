@@ -15,7 +15,24 @@ namespace HackerRank
         public static int sockMerchant(int n, int[] ar)
         {
             int result = 0;
+            List<int> sockPairs = ar.ToList();
 
+            for(int i = 0; i < sockPairs.Count - 1; i++)
+            {
+                
+                for(int k = i + 1; k < sockPairs.Count; k++)
+                {
+                    if(sockPairs[i] == sockPairs[k])
+                    {
+                        int pair = sockPairs[i];
+                        result++;
+                        sockPairs.Remove(pair);
+                        sockPairs.Remove(pair);
+                        i = -1;
+                        break;
+                    }
+                }
+            }
 
             return result;
         }
