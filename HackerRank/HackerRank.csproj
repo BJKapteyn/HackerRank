@@ -75,6 +75,7 @@
     <Compile Include="GradingStudents.cs" />
     <Compile Include="KangarooJump.cs" />
     <Compile Include="MagicSquare.cs" />
+    <Compile Include="MatchingPairs.cs" />
     <Compile Include="MigratoryBirds.cs" />
     <Compile Include="MinMaxArray.cs" />
     <Compile Include="Program.cs" />
