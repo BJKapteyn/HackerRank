@@ -28,6 +28,7 @@ namespace HackerRank
                         result++;
                         sockPairs.Remove(pair);
                         sockPairs.Remove(pair);
+
                         i = -1;
                         break;
                     }
@@ -42,6 +43,7 @@ namespace HackerRank
     {
         [Theory]
         [InlineData(new int[] { 10, 20, 20, 10, 10, 30, 50, 10, 20 }, 3)]
+        [InlineData(new int[] { 1, 2, 1, 2, 1, 3, 2}, 2)]
         public static void SockMerchantTest(int[] test, int expected)
         {
             int actual = MatchingPairs.sockMerchant(expected, test);
