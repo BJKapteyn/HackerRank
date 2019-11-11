@@ -8,6 +8,16 @@ using Xunit;
 namespace HackerRank
 {
     //calculate the values of an hourglass shape in a 6X6 2D array
+    //111000
+    //111000
+    //111000
+    //111000
+    //111000
+    //111000
+    // an hourglass shape would be: 
+    //111
+    // 1 
+    //111
     class HourGlass
     {
         public static int hourglassSum(int[][] arr)
@@ -36,6 +46,21 @@ namespace HackerRank
 
     public class HourGlassTest
     {
+        [Fact]
+        public void HourGlassTest1()
+        {
+            int expected = 19;
+            int[][] test = { new int[] { 1, 1, 1, 0, 0, 0 },
+                             new int[] { 0, 1, 0, 0, 0, 0 },
+                             new int[] { 1, 1, 1, 0, 0, 0 },
+                             new int[] { 0, 0, 2, 4, 4, 0 },
+                             new int[] { 0, 0, 0, 2, 0, 0 },
+                             new int[] { 0, 0, 1, 2, 4, 0 }
+            };
 
+            int actual = HourGlass.hourglassSum(test);
+
+            Assert.Equal(expected, actual);
+        }
     }
 }

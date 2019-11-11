@@ -73,6 +73,7 @@
     <Compile Include="DivisibleSum.cs" />
     <Compile Include="DrawingBook.cs" />
     <Compile Include="GradingStudents.cs" />
+    <Compile Include="HourGlass.cs" />
     <Compile Include="KangarooJump.cs" />
     <Compile Include="MagicSquare.cs" />
     <Compile Include="MatchingPairs.cs" />
