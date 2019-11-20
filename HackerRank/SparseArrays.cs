@@ -44,7 +44,9 @@ namespace HackerRank
                     new string[] { "aba", "xzxb", "ab" })]
         public void sparseArraysTest1(int[] expected, string[] test, string[] queryArr)
         {
-            int[] actual = SparseArrays.
+            int[] actual = SparseArrays.sparseArrays(test, queryArr);
+
+            Assert.Equal(expected, actual);
         }
     }
 }
