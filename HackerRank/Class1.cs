@@ -37,6 +37,7 @@ namespace HackerRank
     {
         [Theory]
         [InlineData(new int[] { 5, 1, 2, 3, 4 }, new int[] { 1, 2, 3, 4, 5 }, 4)]
+        [InlineData(new int[] { 12, 13, 7, 8, 9, 10, 11 }, new int[] { 7, 8, 9, 10, 11, 12, 13 }, 5)]
         public void rotateArrayTest1(int[] expected, int[] test, int rotate)
         {
             int[] actual = RotateArray.rotateArray(test, rotate);
