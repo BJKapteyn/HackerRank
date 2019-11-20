@@ -67,7 +67,7 @@
     <Compile Include="BlowOutCandles.cs" />
     <Compile Include="BoneAppetite.cs" />
     <Compile Include="BreakingRecords.cs" />
-    <Compile Include="Class1.cs" />
+    <Compile Include="RotateArray.cs" />
     <Compile Include="ClimbingLeaderboard.cs" />
     <Compile Include="ConvertToMilitaryTime.cs" />
     <Compile Include="DayOfProgrammer.cs" />
@@ -83,6 +83,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RightLadder.cs" />
+    <Compile Include="SparseArrays.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

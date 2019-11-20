@@ -42,6 +42,9 @@ namespace HackerRank
         [InlineData(new int[] { 2, 1, 0}, 
                     new string[] { "aba", "baba", "aba", "xzxb" },
                     new string[] { "aba", "xzxb", "ab" })]
+        [InlineData(new int[] { 1, 3, 4, 3, 2 },
+                    new string[] {"abcde", "sdaklfj", "asdjf", "na", "basdn", "sdaklfj", "asdjf", "na", "asdjf", "na", "basdn", "sdaklfj", "asdjf" },
+                    new string[] { "abcde", "sdaklfj", "asdjf", "na", "basdn" })]
         public void sparseArraysTest1(int[] expected, string[] test, string[] queryArr)
         {
             int[] actual = SparseArrays.sparseArrays(test, queryArr);
