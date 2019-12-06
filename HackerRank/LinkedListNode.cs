@@ -42,12 +42,49 @@ namespace HackerRank
                 }
                 return counter;
             }
-            set
-            {
-                
-            }
         }
 
+        public void DeleteNode(int index)
+        {
+            if(this.Count == 0)
+            {
+                Console.WriteLine("No nodes in this list to delete.");
+            }
+            else if(index < 1)
+            {
+                Console.WriteLine("Cannot delete index of less than zero");
+            }
+            else if(index > this.Count)
+            {
+                Console.WriteLine("List count is currently less than index");
+            }
+            else
+            {
+                SinglyLinkedListNode current = this.head;
+                while(index > 0)
+                {
+                    if(index == 1)
+                    {
+                        //check that we arent at the end of the list
+                        if(current.next.next == null)
+                        {
+                            current.next = null;
+                        }
+                        else
+                        {
+                            current.next = current.next.next;
+                           
+                        }
+                        break;
+                    }
+                    else
+                    {
+                        current = current.next;
+                        index--;
+                    }
+                }
+            }
+        }
         public void PrintList()
         {
             Console.WriteLine(this.head.data);
