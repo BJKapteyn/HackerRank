@@ -19,7 +19,9 @@ namespace HackerRank
             L.insertNodeAtTail(L.head, 15);
 
             L.PrintList();
-            Console.WriteLine(L.head.next);
+            
+            Console.WriteLine(L.Count);
+            Console.ReadKey();
         }
         
     }

@@ -22,6 +22,32 @@ namespace HackerRank
 
     class SinglyLinkedList
     {
+        public SinglyLinkedListNode head;
+        public int Count
+        {
+            get
+            {
+                int counter = 0;
+                SinglyLinkedListNode current = this.head;
+                if (this.head == null)
+                {
+                    return counter;
+                }
+
+                counter++;
+                while(current.next != null)
+                {
+                    counter++;
+                    current = current.next;
+                }
+                return counter;
+            }
+            set
+            {
+                
+            }
+        }
+
         public void PrintList()
         {
             Console.WriteLine(this.head.data);
@@ -33,6 +59,7 @@ namespace HackerRank
             }
             Console.ReadKey();
         }
+
         public SinglyLinkedListNode insertNodeAtTail(SinglyLinkedListNode head, int data)
         {
 
@@ -55,7 +82,6 @@ namespace HackerRank
             return result;
 
         }
-        public SinglyLinkedListNode head;
 
         public SinglyLinkedList()
         {
