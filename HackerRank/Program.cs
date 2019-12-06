@@ -17,6 +17,8 @@ namespace HackerRank
             L.insertNodeAtTail(L.head, 16);
             L.insertNodeAtTail(L.head, 17);
             L.insertNodeAtTail(L.head, 15);
+
+            L.PrintList();
             Console.WriteLine(L.head.next);
         }
         
