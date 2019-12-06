@@ -67,6 +67,7 @@
     <Compile Include="BlowOutCandles.cs" />
     <Compile Include="BoneAppetite.cs" />
     <Compile Include="BreakingRecords.cs" />
+    <Compile Include="LinkedListNode.cs" />
     <Compile Include="RotateArray.cs" />
     <Compile Include="ClimbingLeaderboard.cs" />
     <Compile Include="ConvertToMilitaryTime.cs" />
