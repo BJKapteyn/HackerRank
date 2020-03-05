@@ -16,24 +16,44 @@ namespace HackerRank
     {
         public static bool CanMakeRansom(string[] magazine, string[] ransomNote)
         {
-            bool result = true;
+            bool result = false;
+            int ransomIndex = 0;
+            int magIndex = 0;
 
             Array.Sort(magazine);
             List<string> mag = magazine.ToList();
             Array.Sort(ransomNote);
-            List<string> ransomeN = ransomNote.ToList();
+            List<string> ransomN = ransomNote.ToList();
 
-            foreach(string word in ransomNote)
+
+            while(magIndex < mag.Count)
             {
-                if (!(mag.Exists(x => x == word)))
+                if (ransomN[ransomIndex] == mag[magIndex])
                 {
-                    return false;
+                    if(ransomIndex < ransomN.Count)
+                    {
+                        ransomIndex++;
+                        if (ransomIndex == ransomN.Count)
+                        {
+                            return true;
+                        }
+                    }
+                   
                 }
-                else
-                {
-                    mag.Remove(word);
-                }
+                magIndex++;
             }
+
+            //foreach(string word in ransomNote)
+            //{
+            //    if (!(mag.Exists(x => x == word)))
+            //    {
+            //        return false;
+            //    }
+            //    else
+            //    {
+            //        mag.Remove(word);
+            //    }
+            //}
 
             return result;
         }
@@ -55,7 +75,6 @@ namespace HackerRank
     {
         [Theory]
         [InlineData(new string[] { "two", "times", "three", "is", "not", "four" }, new string[] { "two", "times", "three", "is", "four" }, true)]
-
         [InlineData(new string[] { "Two", "times", "three", "is", "not", "four" }, new string[] { "two", "times", "three", "is", "four" }, false)]
         [InlineData(new string[] { "two", "times", "three", "is", "not", "four" }, new string[] { "two", "times", "two", "is", "four" }, false)]
 
