@@ -29,6 +29,10 @@ namespace HackerRank
                 {
                     return false;
                 }
+                else
+                {
+                    mag.Remove(word);
+                }
             }
 
             return result;
@@ -53,6 +57,7 @@ namespace HackerRank
         [InlineData(new string[] { "two", "times", "three", "is", "not", "four" }, new string[] { "two", "times", "three", "is", "four" }, true)]
 
         [InlineData(new string[] { "Two", "times", "three", "is", "not", "four" }, new string[] { "two", "times", "three", "is", "four" }, false)]
+        [InlineData(new string[] { "two", "times", "three", "is", "not", "four" }, new string[] { "two", "times", "two", "is", "four" }, false)]
 
         public void HashTableTest1(string[] magazine, string[] ransomNote, bool expected)
         {
