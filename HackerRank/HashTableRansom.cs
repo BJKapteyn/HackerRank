@@ -14,16 +14,16 @@ namespace HackerRank
     //note the challenge calls for hash tables but that seems unnecessary
     public class HashTableRansom
     {
-        public static bool CanMakeRansom(string[] magazine, string[] ransomeNote)
+        public static bool CanMakeRansom(string[] magazine, string[] ransomNote)
         {
             bool result = true;
 
             Array.Sort(magazine);
             List<string> mag = magazine.ToList();
-            Array.Sort(ransomeNote);
-            List<string> ransomeN = ransomeNote.ToList();
+            Array.Sort(ransomNote);
+            List<string> ransomeN = ransomNote.ToList();
 
-            foreach(string word in ransomeNote)
+            foreach(string word in ransomNote)
             {
                 if (!(mag.Exists(x => x == word)))
                 {
