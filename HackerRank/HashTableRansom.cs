@@ -12,18 +12,53 @@ namespace HackerRank
     //must use only whole words available in the magazine. He cannot use substrings or concatenation to create the words he needs.
     
     //note the challenge calls for hash tables but that seems unnecessary
-    class HashTableRansom
+    public class HashTableRansom
     {
+        public static bool CanMakeRansom(string[] magazine, string[] ransomeNote)
+        {
+            bool result = true;
 
+            Array.Sort(magazine);
+            List<string> mag = magazine.ToList();
+            Array.Sort(ransomeNote);
+            List<string> ransomeN = ransomeNote.ToList();
+
+            foreach(string word in ransomeNote)
+            {
+                if (!(mag.Exists(x => x == word)))
+                {
+                    return false;
+                }
+            }
+
+            return result;
+        }
+
+        public static void checkMagazine(string[] magazine, string[] ransomNote)
+        {
+            if(CanMakeRansom(magazine, ransomNote))
+            {
+                Console.WriteLine("Yes");
+            }
+            else
+            {
+                Console.WriteLine("No");
+            }
+        }
     }
 
     public class HashTableRansomTest
     {
         [Theory]
-        [InlineData(new string[] { "two", "times", "three", "is", "not", "four" }, new string[] { "two", "times", "three", "is", "four" })]
-        public void HashTableTest1(string[] magazine, string[] ransomNote)
-        {
+        [InlineData(new string[] { "two", "times", "three", "is", "not", "four" }, new string[] { "two", "times", "three", "is", "four" }, true)]
 
+        [InlineData(new string[] { "Two", "times", "three", "is", "not", "four" }, new string[] { "two", "times", "three", "is", "four" }, false)]
+
+        public void HashTableTest1(string[] magazine, string[] ransomNote, bool expected)
+        {
+            bool actual = HashTableRansom.CanMakeRansom(magazine, ransomNote);
+
+            Assert.Equal(expected, actual);
         }
 
     }
