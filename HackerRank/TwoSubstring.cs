@@ -10,6 +10,7 @@ namespace HackerRank
 
     class TwoSubstring
     {
+        //https://www.hackerrank.com/challenges/two-strings/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=dictionaries-hashmaps
         //Given two strings, determine if they share a common substring. A substring may be as small as one character.
 
         //For example, the words "a", "and", "art" share the common substring. The words "be" and "cat" do not share a substring. 
@@ -19,23 +20,11 @@ namespace HackerRank
 
             string string1Distinct = new String(string1.Distinct().ToArray());
             string string2Distinct = new String(string2.Distinct().ToArray());
-            string shorterString = "";
-            string longerString = "";
+            
 
-            if(string1Distinct.Length > string2Distinct.Length)
+            foreach(char a in string1Distinct) 
             {
-                shorterString = string2Distinct;
-                longerString = string1Distinct;
-            }
-            else
-            {
-                shorterString = string1Distinct;
-                longerString = string2Distinct;
-            }
-
-            foreach(char a in shorterString) 
-            {
-                foreach(char b in longerString)
+                foreach(char b in string2Distinct)
                 {
                     if(a == b)
                     {
