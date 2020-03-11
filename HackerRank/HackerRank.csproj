@@ -69,6 +69,7 @@
     <Compile Include="BreakingRecords.cs" />
     <Compile Include="HashTableRansom.cs" />
     <Compile Include="LinkedListNode.cs" />
+    <Compile Include="PickingNumbers.cs" />
     <Compile Include="RotateArray.cs" />
     <Compile Include="ClimbingLeaderboard.cs" />
     <Compile Include="ConvertToMilitaryTime.cs" />
