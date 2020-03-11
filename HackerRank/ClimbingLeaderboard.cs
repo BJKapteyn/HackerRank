@@ -45,6 +45,7 @@ namespace HackerRank
             {
                 return highNumIndex;
             }
+
             while (highNumIndex <= lowNumIndex)
             {
                 mid = (lowNumIndex + highNumIndex) / 2;
