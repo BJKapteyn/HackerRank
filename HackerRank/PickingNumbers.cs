@@ -49,11 +49,7 @@ namespace HackerRank
                         }
                     }
 
-                    if(i == j)
-                    {
-                        continue;
-                    }
-                    else if(Math.Abs(integerList[i] - integerList[j]) > 1)
+                    if(Math.Abs(integerList[i] - integerList[j]) > 1)
                     {
                         break;
                     }
@@ -72,7 +68,7 @@ namespace HackerRank
             }
 
             //add one to the result to include the index that was tested.
-            result += 1;
+            //result += 1;
 
             return result;
         }
