@@ -13,22 +13,22 @@ namespace HackerRank
     //absolute difference between any two of the chosen integers is less than or equal to 1
     class PickingNumbers
     {
-        public static int pickingNumbers(List<int> integerArray)
+        public static int pickingNumbers(List<int> integerList)
         {
             int result = 0;
             List<int> usedNumbers = new List<int>();
-            integerArray.Sort();
+            integerList.Sort();
 
-            for(int i = 0; i < integerArray.Count; i++)
+            for(int i = 0; i < integerList.Count; i++)
             {
                 int numOfIntegersWithinOne = 0;
                 //skip the integer in the array if it has already been checked.
-                if(usedNumbers.Contains(integerArray[i]))
+                if(usedNumbers.Contains(integerList[i]))
                 {
                     continue;
                 }
                 
-                for (int j = 0; j < integerArray.Count; j++)
+                for (int j = 0; j < integerList.Count; j++)
                 {
                     //on first loop, check if there is a number one less than the current index in the array, 
                     //if not start at index one after the checked index.
@@ -36,9 +36,9 @@ namespace HackerRank
                     {
                         if(i > 0)
                         {
-                            if(integerArray.Contains(integerArray[j] - 1))
+                            if(integerList.Contains(integerList[j] - 1))
                             {
-                                j = integerArray.IndexOf(integerArray[j] - 1);
+                                j = integerList.IndexOf(integerList[j] - 1);
                                 //j = Array.IndexOf(integerArray, (integerArray[j] - 1));
                                 continue;
                             }
@@ -53,7 +53,7 @@ namespace HackerRank
                     {
                         continue;
                     }
-                    else if(Math.Abs(integerArray[i] - integerArray[j]) > 1)
+                    else if(Math.Abs(integerList[i] - integerList[j]) > 1)
                     {
                         break;
                     }
@@ -68,7 +68,7 @@ namespace HackerRank
                     result = numOfIntegersWithinOne;
                 }
 
-                usedNumbers.Add(integerArray[i]);
+                usedNumbers.Add(integerList[i]);
             }
 
             //add one to the result to include the index that was tested.
