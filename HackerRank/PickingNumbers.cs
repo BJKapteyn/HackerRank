@@ -15,10 +15,62 @@ namespace HackerRank
         public static int pickingNumbers(int[] integerArray)
         {
             int result = 0;
-
+            List<int> usedNumbers = new List<int>();
             Array.Sort(integerArray);
 
+            for(int i = 0; i < integerArray.Length; i++)
+            {
+                int numOfIntegersWithinOne = 0;
+                //skip the number if it has already been checked.
+                if(usedNumbers.Contains(integerArray[i]))
+                {
+                    continue;
+                }
+                
+                for (int j = 0; j < integerArray.Length; j++)
+                {
+                    //on first loop, check if there is a number one less than the current index in the array, 
+                    //if not start at index one after the current index.
+                    if(j == 0)
+                    {
+                        if(i > 0)
+                        {
+                            if(integerArray.Contains(integerArray[j] - 1))
+                            {
+                                j = Array.IndexOf(integerArray, (integerArray[j] - 1));
+                                continue;
+                            }
+                            else
+                            {
+                                j = i;
+                            }
+                        }
+                    }
 
+                    if(i == j)
+                    {
+                        continue;
+                    }
+                    else if(Math.Abs(integerArray[i] - integerArray[j]) > 1)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        numOfIntegersWithinOne++;
+                    }
+                }
+
+                if(numOfIntegersWithinOne > result)
+                {
+                    result = numOfIntegersWithinOne;
+                }
+
+                usedNumbers.Add(integerArray[i]);
+            }
+
+            //add one to the result to include the index that was tested.
+            result += 1;
 
             return result;
         }
