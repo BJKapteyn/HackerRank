@@ -16,24 +16,39 @@ namespace HackerRank
     {
         public static int hurdleRace(int jumpHeight, int[] hurdleHeights)
         {
-            int potionsNeeded = hurdleHeights.Select(x => howManyPotions(jumpHeight, x))
-                                             .ToArray()
-                                             .Aggregate((x, y) => x + y);
+            int result = 0;
 
-            return potionsNeeded;
-        }
-        
-        private static int howManyPotions(int jumpHeight, int hurdleHeight)
-        {
-            if(hurdleHeight > jumpHeight)
+            foreach(int hurdleHeight in hurdleHeights)
             {
-                return hurdleHeight -= jumpHeight;
+                if(hurdleHeight > jumpHeight)
+                {
+                    result = hurdleHeight - jumpHeight;
+                    jumpHeight = hurdleHeight;
+                }
             }
-            else
-            {
-                return 0;
-            }
+
+            return result;
         }
+        //public static int hurdleRace(int jumpHeight, int[] hurdleHeights)
+        //{
+        //    int potionsNeeded = hurdleHeights.Select(x => howManyPotions(jumpHeight, x))
+        //                                     .ToArray()
+        //                                     .Aggregate((x, y) => x + y);
+
+        //    return potionsNeeded;
+        //}
+
+        //private static int howManyPotions(int jumpHeight, int hurdleHeight)
+        //{
+        //    if(hurdleHeight > jumpHeight)
+        //    {
+        //        return hurdleHeight -= jumpHeight;
+        //    }
+        //    else
+        //    {
+        //        return 0;
+        //    }
+        //}
     }
 
     public class HurdleRaceTest
@@ -45,6 +60,17 @@ namespace HackerRank
             int[] hurdleHeights = { 2, 5, 4, 5, 2};
 
             int expected = 0;
+            int actual = HurdleRace.hurdleRace(jumpHeight, hurdleHeights);
+
+            Assert.Equal(expected, actual);
+        }
+        [Fact]
+        public void HurdleRace2()
+        {
+            int jumpHeight = 4;
+            int[] hurdleHeights = { 1, 6, 3, 5, 2 };
+
+            int expected = 2;
             int actual = HurdleRace.hurdleRace(jumpHeight, hurdleHeights);
 
             Assert.Equal(expected, actual);
