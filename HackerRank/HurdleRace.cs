@@ -22,7 +22,7 @@ namespace HackerRank
             {
                 if(hurdleHeight > jumpHeight)
                 {
-                    result = hurdleHeight - jumpHeight;
+                    result += hurdleHeight - jumpHeight;
                     jumpHeight = hurdleHeight;
                 }
             }
