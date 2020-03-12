@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xunit;
+using System.Linq;
 
 namespace HackerRank
 {
@@ -15,8 +16,23 @@ namespace HackerRank
     {
         public static int hurdleRace(int jumpHeight, int[] hurdleHeights)
         {
+            int potionsNeeded = hurdleHeights.Select(x => howManyPotions(jumpHeight, x))
+                                             .ToArray()
+                                             .Aggregate((x, y) => x + y);
 
-
+            return potionsNeeded;
+        }
+        
+        private static int howManyPotions(int jumpHeight, int hurdleHeight)
+        {
+            if(hurdleHeight > jumpHeight)
+            {
+                return hurdleHeight -= jumpHeight;
+            }
+            else
+            {
+                return 0;
+            }
         }
     }
 

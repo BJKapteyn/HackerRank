@@ -68,6 +68,7 @@
     <Compile Include="BoneAppetite.cs" />
     <Compile Include="BreakingRecords.cs" />
     <Compile Include="HashTableRansom.cs" />
+    <Compile Include="HurdleRace.cs" />
     <Compile Include="LinkedListNode.cs" />
     <Compile Include="PickingNumbers.cs" />
     <Compile Include="RotateArray.cs" />
