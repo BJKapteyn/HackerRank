@@ -67,6 +67,7 @@
     <Compile Include="BlowOutCandles.cs" />
     <Compile Include="BoneAppetite.cs" />
     <Compile Include="BreakingRecords.cs" />
+    <Compile Include="CountingValleys.cs" />
     <Compile Include="HashTableRansom.cs" />
     <Compile Include="HurdleRace.cs" />
     <Compile Include="LinkedListNode.cs" />
