@@ -14,6 +14,22 @@ namespace HackerRank
         {
             int result = -1;
 
+            foreach(int keyboardPrice in keyboards)
+            {
+                foreach(int drivePrice in drives)
+                {
+                    int bothItems = keyboardPrice + drivePrice;
+                    if(bothItems >= money)
+                    {
+                        continue;
+                    }
+                    else if(bothItems > result)
+                    {
+                        result= bothItems;
+                    }
+                }
+            }
+
             return result;
         }
     }
