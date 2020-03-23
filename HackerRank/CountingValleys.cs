@@ -48,6 +48,9 @@ namespace HackerRank
         public void CountingValleysTest1(string pathSteps, int expected)
         {
             int actual = CountingValleys.countingValleys(pathSteps);
+
+
+            Assert.Equal(expected, actual);
         }
     }
 }
