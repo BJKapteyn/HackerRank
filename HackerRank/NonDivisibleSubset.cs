@@ -11,11 +11,21 @@ namespace HackerRank
     //https://www.hackerrank.com/challenges/non-divisible-subset/problem
     class NonDivisibleSubset
     {
-        public static int nonDivisibleSubset(int k, List<int> s)
+        public static int nonDivisibleSubset(int divisor, List<int> nonDivisibleSubsetList)
         {
             int result = 0;
+            List<int> remainders = findRemainders(nonDivisibleSubsetList, divisor);
 
+            Dictionary<int, int> indexAndFrequency = new Dictionary<int, int>();
+
+            
             return result;
+        }
+
+        public static List<int> findRemainders(List<int> list, int divisor)
+        {
+            
+            return list;
         }
     }
 
