@@ -15,7 +15,27 @@ namespace HackerRank
         public static int CloudJump(int[] clouds)
         {
             int jumps = 0;
-
+            
+            for(int i = 0; i < clouds.Length;)
+            {
+                int firstCloud = i + 1;
+                int secondCloud = i + 2;
+                if (secondCloud >= clouds.Length - 1 || firstCloud == clouds.Length - 1) 
+                {
+                    jumps++;
+                    break;
+                }
+                else if(clouds[secondCloud] ==  0)
+                {
+                    i = secondCloud;
+                }
+                else
+                {
+                    i = firstCloud;
+                }
+                jumps++;
+            }
+            return jumps;
         }
     }
 
